@@ -20,8 +20,10 @@ public class Professor {
         this.ranges = ranges;
     }
 
-    public void addSubject(Subject subject){
+    public boolean addSubject(Subject subject){
+        if(subjects.contains(subject)) return false;
         subjects.add(subject);
+        return true;
     }
 
     public void addRange(Range range){
