@@ -1,0 +1,28 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+idea {
+    project {
+        //Set specific jdk and language level
+        jdkName = '1.8'
+        languageLevel = '1.8'
+    }
+    module {
+        excludeDirs += file('build')
+        excludeDirs += file('gradle')
+        downloadSources = true
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.jetbrains:annotations:13.0'
+    compile 'org.apache.commons:commons-math3:3.0'
+
+    testCompile 'junit:junit:4.11'
+    testCompile 'org.assertj:assertj-core:1.6.0'
+}
+

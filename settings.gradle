@@ -1,0 +1,4 @@
+rootProject.name = 'GeneticCalendar'
+include 'main'
+include 'test'
+
