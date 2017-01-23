@@ -3,24 +3,22 @@ import java.util.List;
 
 public class Main{
 
-    public static int CHILDS = 10000;
+    public static int CHILDS = 100;
 
     public static void main(String[] args) {
-        List<DNA> childs = new ArrayList<DNA>();
-        String phrase = "to be or not to be";
+        List<DNA> childs = new ArrayList<>();
+        String phrase = "vivaelcomunismo";
         DNA.phrase = phrase;
 
         for (int i = 0; i < CHILDS; i++) {
             childs.add(new DNA(phrase.length()));
         }
 
-
-        int k = 0;
-
         while (true){
             List<DNA> matingPool = new ArrayList<DNA>();
 
             for (DNA child : childs) {
+                //System.out.println(" Child "+ child.getStrength() + "  "+ child.getPhrase());
                 for (int j = 0; j < child.getStrength(); j++) {
                     matingPool.add(child);
                 }
@@ -35,12 +33,11 @@ public class Main{
 
             DNA best = childs.get(0);
             for(DNA child: childs){
-                //System.out.println("Child strenght " +child.getStrength());
                 if(child.getStrength()>best.getStrength()) best = child;
             }
 
             int bestScore = best.getStrength();
-            System.out.println(k++ +"  Score   "+ bestScore+ "   Phrase:   " + best.getPhrase() + " Mating pool size "+ matingPool.size());
+            System.out.println("  Score   "+ bestScore+ "   Phrase:   " + best.getPhrase() + " Mating pool size "+ matingPool.size());
 
             matingPool.clear();
         }
