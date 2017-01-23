@@ -1,6 +1,12 @@
 .gitignore
 .gradle/
-.idea/
+.idea/compiler.xml
+.idea/copyright/
+.idea/gradle.xml
+.idea/misc.xml
+.idea/shelf/
+.idea/workspace.xml
 gradle/
 gradlew
 gradlew.bat
+src/test/
