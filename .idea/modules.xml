@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GeneticCalendar.iml" filepath="$PROJECT_DIR$/.idea/modules/GeneticCalendar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/main/main.iml" filepath="$PROJECT_DIR$/.idea/modules/main/main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test/test.iml" filepath="$PROJECT_DIR$/.idea/modules/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GeneticCalendar_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GeneticCalendar_main.iml" group="GeneticCalendar" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GeneticCalendar_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GeneticCalendar_test.iml" group="GeneticCalendar" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/main/main.iml" filepath="$PROJECT_DIR$/.idea/modules/main/main.iml" group="main" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test/test.iml" filepath="$PROJECT_DIR$/.idea/modules/test/test.iml" group="test" />
     </modules>
   </component>
 </project>
