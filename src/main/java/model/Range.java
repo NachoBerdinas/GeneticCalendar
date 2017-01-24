@@ -18,6 +18,10 @@ public class Range {
         return Math.max(start, other.start) <= Math.min(finish, other.finish);
     }
 
+    public boolean isInside(Range other) {
+        return start >=  other.start && finish <= other.finish;
+    }
+
     public int getStart() {
         return start;
     }
@@ -49,5 +53,14 @@ public class Range {
         result = 31 * result + finish;
         result = 31 * result + day;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Range{" +
+                "start=" + start +
+                ", finish=" + finish +
+                ", day=" + day +
+                '}';
     }
 }

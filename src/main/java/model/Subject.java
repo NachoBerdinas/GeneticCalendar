@@ -39,4 +39,12 @@ public class Subject {
         result = 31 * result + (range != null ? range.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "name='" + name + '\'' +
+                ", range=" + range +
+                '}';
+    }
 }

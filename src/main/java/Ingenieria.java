@@ -16,13 +16,13 @@ public class Ingenieria {
     }
 
     public void init() {
-        professors.add(new Professor("Alicia", Arrays.asList(new Range(0, 20, 0), new Range(0, 20, 2))));
-        professors.add(new Professor("Alberto", Arrays.asList(new Range(0, 20, 1), new Range(0, 20, 3))));
-        professors.add(new Professor("Cassol", Arrays.asList(new Range(0, 20, 0), new Range(0, 20, 2), new Range(0, 20, 4), new Range(0, 20, 1))));
-        professors.add(new Professor("Cecilia", Arrays.asList(new Range(0, 20, 4), new Range(0, 20, 2))));
-        professors.add(new Professor("Lupanni", Arrays.asList(new Range(0, 20, 3), new Range(0, 20, 4))));
-        professors.add(new Professor("Colunga", Arrays.asList(new Range(0, 20, 2), new Range(0, 20, 2))));
-        professors.add(new Professor("Vivian", Arrays.asList(new Range(0, 20, 1), new Range(0, 20, 0))));
+        professors.add(new Professor("Alicia", Arrays.asList(new Range(0, 36, 0), new Range(0, 36, 2))));
+        professors.add(new Professor("Alberto", Arrays.asList(new Range(0, 36, 1), new Range(0, 36, 3))));
+        professors.add(new Professor("Cassol", Arrays.asList(new Range(0, 36, 0), new Range(0, 36, 2), new Range(0, 36, 4), new Range(0, 36, 1))));
+        professors.add(new Professor("Cecilia", Arrays.asList(new Range(0, 36, 4), new Range(0, 36, 2))));
+        professors.add(new Professor("Lupanni", Arrays.asList(new Range(0, 36, 3), new Range(0, 36, 4))));
+        professors.add(new Professor("Colunga", Arrays.asList(new Range(0, 36, 2), new Range(0, 36, 2))));
+        professors.add(new Professor("Vivian", Arrays.asList(new Range(0, 36, 1), new Range(0, 36, 0))));
     }
 
     public List<Professor> getProfessors() {
