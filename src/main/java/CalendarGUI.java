@@ -46,4 +46,12 @@ public class CalendarGUI extends JTable {
         }
     }
 
+    public void clear(){
+        for(int i =1; i < 6 ;i++){
+            for(int j = 0; j< 48 ;j++){
+                getModel().setValueAt("",j,i);
+            }
+        }
+    }
+
 }

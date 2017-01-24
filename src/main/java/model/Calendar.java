@@ -10,7 +10,7 @@ import java.util.List;
 public class Calendar {
     public Subject[][] days;
     public List<Subject> subjects;
-    public int score;
+    public int score=1;
 
     public Calendar() {
         days = new Subject[5][48];
@@ -18,18 +18,17 @@ public class Calendar {
     }
 
     public Calendar(Calendar father, Calendar mother){
-        int subjectCount = father.getSubjects().size();
-        for(int i = 0; i< subjectCount ; i++){
-            if(i%2==0){
-                if(!addSubject(father.getSubjects().remove(0))){
-                    --i;
-                }
-            }else {
-                if(!addSubject(mother.getSubjects().remove(0))){
-                    --i;
-                }
-            }
+        days = new Subject[5][48];
+        subjects = new ArrayList<>();
+
+        father.getSubjects().get(0);
+        father.getSubjects().get(1);
+        father.getSubjects().get(2);
+
+        for(int j = 0;j<mother.getSubjects().size();j++){
+            addSubject(mother.getSubjects().get(j));
         }
+
         mutate();
         calculateScore();
     }
@@ -38,15 +37,34 @@ public class Calendar {
 
     }
 
-    private void calculateScore() {
+    public void calculateScore() {
+        score = 1;
+        for(int i = 0; i<5;i++){
+            if(days[i][0] !=null) score++;
+        }
 
+        boolean emptyFriday = true;
+        for(int i = 0; i<48;i++){
+            if(days[4][i] != null) emptyFriday = false;
+        }
+
+        if(emptyFriday) score = (int)Math.pow(score,5);
+
+        for(int i = 0; i<5;i++){
+            for(int j = 12; j< 16;j++){
+                if(days[i][j] == null) score++;
+            }
+        }
     }
 
+    public int getStrength() {
+        return score;
+    }
 
     public boolean addSubject(Subject subject){
+        if(subjects.contains(subject)) return false;
         for(int i = subject.getRange().getStart(); i< subject.getRange().getFinish() ;i++){
-            //System.out.println("Checking ("+subject.getRange().getDay()+","+i+")" + ((days[subject.getRange().getDay()][i] != null)?subject:null));
-            if(days[subject.getRange().getDay()][i] != null || subjects.contains(subject)) return false;
+            if(days[subject.getRange().getDay()][i] != null) return false;
         }
         for(int i = subject.getRange().getStart(); i< subject.getRange().getFinish() ;i++){
             days[subject.getRange().getDay()][i] = subject;
@@ -60,6 +78,7 @@ public class Calendar {
         for(int i = subject.getRange().getStart(); i< subject.getRange().getFinish() ;i++){
             days[subject.getRange().getDay()][i] = null;
         }
+        subjects.remove(subject);
     }
 
     public Subject[][] getDays() {

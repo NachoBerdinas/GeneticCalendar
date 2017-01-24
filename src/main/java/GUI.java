@@ -1,6 +1,7 @@
 import model.Professor;
 import model.Range;
 import model.Subject;
+import old.DNA;
 import random.RandomUtils;
 import model.Calendar;
 import javax.swing.*;
@@ -25,7 +26,7 @@ public class GUI {
         List<Calendar> calendars = new ArrayList<>();
 
 
-        for( int i =0; i< 100;i++) {
+        for( int i =0; i< 10000;i++) {
             Calendar table = new Calendar();
             java.util.List<String> subjectList = Arrays.asList("Etica", "Databases", "Inv Operativa", "Tecnicas", "Teoria Emp", "LCD", "Lab1");
             Map<String, Professor> map = new HashMap<>();
@@ -54,14 +55,56 @@ public class GUI {
                     //System.out.println("Insert successful "+subject.getName() + " in range " + subject.getRange());
                     subjectList.remove(picked);
                 } else {
-                    System.out.println(j++ + "Cant insert successful " + subject.getName() + " in range " + subject.getRange());
+                    //System.out.println(j++ + "Cant insert successful " + subject.getName() + " in range " + subject.getRange());
                     table.removeSubject(subject);
                     map.get(subject.getName()).removeSubject(subject);
                 }
             }
+            System.out.println(i+" Subjects "+table.getSubjects().size());
             calendars.add(table);
         }
 
+        int generation = 0;
+        while(true){
+            calendars.forEach(Calendar::calculateScore);
 
+            List<Calendar> matingPool = new ArrayList<>();
+            for(Calendar c: calendars){
+                for(int i =0; i< c.score;i++){
+                    matingPool.add(c);
+                }
+            }
+
+            calendars.clear();
+            for (int i = 0; i < 10000; i++) {
+                int a = (int) (Math.random() * matingPool.size());
+                int b = (int) (Math.random() * matingPool.size());
+                Calendar aux = new Calendar(matingPool.get(a), matingPool.get(b));
+                if(aux.getSubjects().size() != 7){
+                    System.out.println(" BYE");
+                    i--;
+                }else {
+                    calendars.add(aux);
+                }
+            }
+            System.out.println("Mating pool size "+matingPool.size() + "   Generation " + generation++);
+
+            if(generation>200)break;
+            matingPool.clear();
+        }
+        Calendar best = calendars.get(0);
+        for(Calendar c: calendars){
+            if(c.getStrength()>best.getStrength()) best = c;
+        }
+
+        gui.clear();
+
+        best.getSubjects().forEach(gui::addSubject);
+
+        try {
+            Thread.sleep(2*generation);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
