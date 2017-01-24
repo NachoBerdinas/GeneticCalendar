@@ -14,6 +14,10 @@ public class Range {
         this.day = day;
     }
 
+    public boolean overlaps(Range other) {
+        return Math.max(start, other.start) <= Math.min(finish, other.finish);
+    }
+
     public int getStart() {
         return start;
     }

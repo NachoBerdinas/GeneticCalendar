@@ -6,7 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GeneticCalendar_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GeneticCalendar_main.iml" group="GeneticCalendar" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GeneticCalendar_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GeneticCalendar_test.iml" group="GeneticCalendar" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/main/main.iml" filepath="$PROJECT_DIR$/.idea/modules/main/main.iml" group="main" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/main/main_main.iml" filepath="$PROJECT_DIR$/.idea/modules/main/main_main.iml" group="main" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/main/main_test.iml" filepath="$PROJECT_DIR$/.idea/modules/main/main_test.iml" group="main" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/test/test.iml" filepath="$PROJECT_DIR$/.idea/modules/test/test.iml" group="test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test/test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/test/test_main.iml" group="test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test/test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/test/test_test.iml" group="test" />
     </modules>
   </component>
 </project>

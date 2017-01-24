@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,10 @@ public class Professor {
     private List<Subject> subjects;
     private List<Range> ranges;
 
-    public Professor(String name) {
+    public Professor(String name, List<Range> ranges) {
         this.name = name;
+        this.ranges = ranges;
+        this.subjects = new ArrayList<>();
     }
 
     public Professor(String name, List<Subject> subjects, List<Range> ranges) {
@@ -21,7 +24,8 @@ public class Professor {
     }
 
     public boolean addSubject(Subject subject){
-        if(subjects.contains(subject)) return false;
+        boolean overlaps = subjects.stream().map(Subject::getRange).anyMatch(r -> r.overlaps(subject.getRange()));
+        if(subjects.contains(subject) || overlaps) return false;
         subjects.add(subject);
         return true;
     }
